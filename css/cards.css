@@ -1,0 +1,156 @@
+.hands-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  min-width: 280px;
+}
+
+.player-hand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player-hand h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: var(--glow);
+  margin-bottom: 4px;
+}
+
+.hand-cards {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 70px;
+  height: 95px;
+  border: 1px solid var(--text-color);
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glow);
+  z-index: 10;
+}
+
+.card.selected {
+  border-width: 2px;
+  box-shadow: var(--glow);
+  background: rgba(0, 255, 65, 0.15);
+}
+
+.card.legendary {
+  border-color: #FFD700;
+  box-shadow: 0 0 4px #FFD700;
+}
+
+.card.legendary .card-name {
+  color: #FFD700;
+}
+
+.card.reaction-card {
+  border-style: dashed;
+}
+
+.card.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.card-name {
+  font-size: 8px;
+  text-align: center;
+  text-shadow: var(--glow);
+  padding: 2px;
+  line-height: 1.2;
+}
+
+.card-sigil {
+  font-size: 20px;
+  line-height: 1;
+  margin: 2px 0;
+}
+
+.card-cost {
+  font-size: 8px;
+  color: var(--text-dim);
+}
+
+.card-expand {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: var(--bg-color);
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  z-index: 100;
+  text-align: center;
+}
+
+.card:hover .card-expand {
+  display: block;
+}
+
+.card-expand .card-art {
+  font-size: 10px;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  white-space: pre;
+}
+
+.card-expand .card-desc {
+  font-size: 11px;
+  color: var(--text-color);
+}
+
+@keyframes cardDraw {
+  from {
+    transform: translateY(-50px) rotate(-10deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cardPlay {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+.card-draw {
+  animation: cardDraw 0.3s ease-out;
+}
+
+.card-play {
+  animation: cardPlay 0.3s ease-out forwards;
+}
+
+.hp-bar {
+  font-size: 10px;
+  letter-spacing: -1px;
+}
+
+.score-display {
+  font-size: 11px;
+  color: var(--text-dim);
+}

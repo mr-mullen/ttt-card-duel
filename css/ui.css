@@ -1,0 +1,231 @@
+.game-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  gap: 10px;
+}
+
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--text-color);
+}
+
+.header h1 {
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-shadow: var(--glow);
+}
+
+.header-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-controls label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+}
+
+.turn-indicator {
+  font-size: 14px;
+  padding: 4px 12px;
+  border: 1px solid var(--text-color);
+  text-shadow: var(--glow);
+}
+
+.turn-indicator.p1 {
+  color: #00FF41;
+}
+
+.turn-indicator.p2 {
+  color: #00D0FF;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.main-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.board-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--text-color);
+  padding: 20px;
+  position: relative;
+}
+
+.event-log {
+  border: 1px solid var(--text-color);
+  padding: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.event-log h3 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-shadow: var(--glow);
+}
+
+.log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.log-entry {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.log-entry::before {
+  content: '> ';
+  color: var(--text-color);
+}
+
+.log-entry.p1-event {
+  color: #00FF41;
+}
+
+.log-entry.p2-event {
+  color: #00D0FF;
+}
+
+@keyframes typeIn {
+  from { width: 0; overflow: hidden; white-space: nowrap; }
+  to { width: 100%; }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typeIn 0.3s steps(20) forwards;
+}
+
+.phase-indicator {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.settings-panel {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-color);
+  border: 2px solid var(--text-color);
+  padding: 20px;
+  z-index: 1000;
+  min-width: 300px;
+  box-shadow: var(--glow);
+}
+
+.settings-panel.open {
+  display: block;
+}
+
+.settings-panel h2 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  text-shadow: var(--glow);
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.settings-row label {
+  font-size: 12px;
+}
+
+.close-settings {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.overlay.open {
+  display: block;
+}
+
+.win-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-color);
+  border: 2px solid var(--text-color);
+  padding: 30px 50px;
+  z-index: 1001;
+  text-align: center;
+  box-shadow: var(--glow);
+}
+
+.win-modal.open {
+  display: block;
+}
+
+.win-modal h2 {
+  font-size: 24px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  text-shadow: var(--glow);
+}
+
+.win-modal p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.win-modal .controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.player-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+}
